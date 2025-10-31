@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from costumes.views import homepage
+from costumes.views import homepage, costumes_submission_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='homepage'),
+    path('costumes/submit/', costumes_submission_page, name='costumes_submission_page'),
 ]
