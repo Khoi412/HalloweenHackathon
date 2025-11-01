@@ -201,4 +201,14 @@ cloudinary.config(
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-print("Cloudinary API Key:", os.getenv('CLOUDINARY_API_KEY'))
+# settings.py
+
+# Tells Django to only send cookies over HTTPS, required for Heroku.
+# This should be set to True in production.
+SESSION_COOKIE_SECURE = True 
+
+# Prevents the cookie from being accessed by client-side JavaScript.
+SESSION_COOKIE_HTTPONLY = True 
+
+# Ensures the CSRF cookie is also secure.
+CSRF_COOKIE_SECURE = True

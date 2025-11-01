@@ -53,7 +53,7 @@
             const iconSpan = button.querySelector(".like-button-icon");
             
             // Perform the AJAX Request to toggle the like state
-            fetch(`hhttps://halloweenhackathon-aaa7ba8be0f6.herokuapp.com/like_costume/${costumeId}/`, {
+            fetch(`https://halloweenhackathon-aaa7ba8be0f6.herokuapp.com/like_costume/${costumeId}/`, {
                 method: 'POST',
                 headers: {
                     // NOTE: Ensure {{ csrf_token }} is rendered correctly here
