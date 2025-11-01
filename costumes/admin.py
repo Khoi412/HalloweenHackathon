@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Costume, Like, Comment
 
-# Register your models here.
+admin.site.register(Costume)
+admin.site.register(Like)
+admin.site.register(Comment)

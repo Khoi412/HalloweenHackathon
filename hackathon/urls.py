@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from costumes.views import homepage
+from costumes.views import homepage, costumes_submission_page
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('costumes/submit/', costumes_submission_page, name='costumes_submission_page'),
+    path('accounts/', include('allauth.urls')),  # Include allauth URLs
     path('', homepage, name='homepage'),
+
 ]

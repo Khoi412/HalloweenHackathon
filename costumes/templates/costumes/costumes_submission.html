@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit your Costume</title>
+    <link rel="stylesheet" href="../../../assets/css/submission_style.css">
+</head>
+<body>
+    <h1>Submit your Costume</h1>
+    <form action="{% url 'costumes_submission_page' %}" method="post">
+        {% csrf_token %}
+        <label for="costume_caption">Caption for your post:</label>
+        <textarea id="costume_caption" name="costume_caption" required></textarea>
+        <br>
+        <label for="images">Your Photo:</label>
+        <input type="file" id="images" name="images" accept="image/*" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        console.log("Costume submission page loaded.");
+    </script>
+</body>
+</html>
