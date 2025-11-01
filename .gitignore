@@ -1,2 +1,6 @@
 venv/
 .env
+
+# Django static files (don’t commit)
+staticfiles/
+staticfiles.json
