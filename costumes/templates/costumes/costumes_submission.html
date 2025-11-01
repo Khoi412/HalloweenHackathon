@@ -1,32 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Costume Submission{% endblock %}
 {% block stylesheet %}
-
-<link rel="stylesheet" href="{% static 'css/submission_style.css' %}">
+<link rel="stylesheet" href="{% static 'css/submission_style.css' %}" type="text/css">
 <script>
-    console.log("Stylesheet for costume submission page loaded.");
+    console.log("Costume submission stylesheet run % loaded");
 </script>
-{% endblock %}
-
-{% block title %}
-Costume Submission
-{% endblock title %}
+{% endblock stylesheet %}
 
 {% block content %}
-    <h1>Submit your Costume</h1>
-    <form action="{% url 'costumes_submission_page' %}" method="post">
-        {% csrf_token %}
-        <label for="costume_caption">Caption for your post:</label>
-        <textarea id="costume_caption" name="costume_caption" required></textarea>
-        <br>
-        <label for="images">Your Photo:</label>
-        <input type="file" id="images" name="images" accept="image/*" required>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-
-    <script>
-        console.log("Costume submission page loaded.");
-    </script>
-{% endblock content %}
+<h1 style="margin-top: 50px;">Submit your Costume</h1>
+<form action="{% url 'costumes_submission_page' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="costume_caption">Caption for your post:</label>
+    <textarea id="costume_caption" name="costume_caption" required></textarea>
+    <br>
+    <label for="images">Your Photo:</label>
+    <input type="file" id="images" name="images" accept="image/*" required>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

@@ -31,6 +31,7 @@
       rel="stylesheet"
       href="{% static 'css/style.css' %}"
       type="text/css">
+      {% block stylesheet %}{% endblock stylesheet %}
  </head>
  
   <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
