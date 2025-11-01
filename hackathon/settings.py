@@ -163,7 +163,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'  # You can change to 'email' if you p
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'assets/'
+STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
