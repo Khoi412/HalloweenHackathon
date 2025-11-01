@@ -3,3 +3,6 @@ venv/
 .venvbk
 .venv__pycache__/
 *.pyc
+# Django static files (don’t commit)
+staticfiles/
+staticfiles.json
