@@ -11,9 +11,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ static('images/favicon-16x16.png') }}">
     <!-- Bootstrap and Popper CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ static('css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block stylesheet %}
-    {% block endstylesheet %}
+    {% endblock %}
 </head>
   <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
 <body class="d-flex flex-column min-vh-100">

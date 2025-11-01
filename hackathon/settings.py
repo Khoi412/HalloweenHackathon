@@ -163,24 +163,19 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'  # You can change to 'email' if you p
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'assets/'
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Where Django looks for static files in development
 STATICFILES_DIRS = [
-    BASE_DIR / 'assets',
+    BASE_DIR / 'static',  # your 'static' folder in the project root
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-
-
+# Where collectstatic collects files for deployment
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+
+# Whitenoise for serving static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
 
 
 # Default primary key field type
