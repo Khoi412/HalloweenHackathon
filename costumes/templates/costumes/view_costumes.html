@@ -17,6 +17,11 @@
             <img src="{{ costume.image.url }}" alt="{{ costume.caption }}">
         </div>
         <div class="costume-caption">
+            <div class="action-buttons">
+                <button class="like-button"><span class="like-counter">0</span> Like</button>
+                <button class="comment-button">Comment</button>
+            </div>
+            <br>
             <h4>{{ costume.caption }}</h4>
             <p>Submitted by: {{ costume.user.username }} on {{ costume.timestamp }}</p>
         </div>
