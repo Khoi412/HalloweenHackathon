@@ -1,9 +1,55 @@
-venv/
-.env
-.venvbk
-.venv__pycache__/
+# Django #
+*.log
+*.pot
 *.pyc
-
-# Django static files (don’t commit)
+__pycache__/
+db.sqlite3
+media/
 staticfiles/
-staticfiles.json
+.env
+*.sqlite3
+.DS_Store
+
+# VS Code #
+.vscode/
+
+# Python #
+*.py[cod]
+*$py.class
+__pycache__/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments #
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors #
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS #
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows #
+Thumbs.db
+ehthumbs.db
+Desktop.ini
