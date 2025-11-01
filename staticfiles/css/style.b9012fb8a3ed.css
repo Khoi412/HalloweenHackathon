@@ -17,7 +17,7 @@
 body {
   color: var(--white);
   font-family: var(--primary-font);
-  padding-top: 34px; /*Added for nav bar space to not overlap as it is now fixed top*/
+  padding-top: 50px; /*Added for nav bar space to not overlap as it is now fixed top*/
   background-color: var(--black);
   max-width: 2000px;
   margin: 0px auto;
@@ -35,7 +35,7 @@ p, a {
 
 #index-header {
   position: relative;
-  background: url(../images/silhouette-scary-zombie-with-dramatic-background.jpg)
+  background: url("../images/silhouette-scary-zombie-with-dramatic-background.64e691950a33.jpg")
               no-repeat fixed;
   background-size: cover;
   height: 100vh;

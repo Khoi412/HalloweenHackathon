@@ -17,7 +17,7 @@
 body {
   color: var(--white);
   font-family: var(--primary-font);
-  padding-top: 50px; /*Added for nav bar space to not overlap as it is now fixed top*/
+  padding-top: 34px; /*Added for nav bar space to not overlap as it is now fixed top*/
   background-color: var(--black);
   max-width: 2000px;
   margin: 0px auto;
@@ -29,6 +29,7 @@ h2 {
 
 p, a {
   font-family: var(--secondary-font);
+    color: var(--secondary-color);
   font-size: 1.6rem;
 }
 
@@ -55,3 +56,14 @@ p, a {
   pointer-events: none; /* lets you click through */
 }
 
+/* Navbar */
+.navbar {
+  background-color: var(--black) !important;
+  z-index: 999;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

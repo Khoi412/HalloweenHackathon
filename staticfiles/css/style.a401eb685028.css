@@ -35,7 +35,7 @@ p, a {
 
 #index-header {
   position: relative;
-  background: url(../images/silhouette-scary-zombie-with-dramatic-background.jpg)
+  background: url("../images/silhouette-scary-zombie-with-dramatic-background.64e691950a33.jpg")
               no-repeat fixed;
   background-size: cover;
   height: 100vh;
