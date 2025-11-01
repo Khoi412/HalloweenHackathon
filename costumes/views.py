@@ -8,13 +8,14 @@ from django.contrib.auth.decorators import login_required
 def homepage(request):
     return render(request, 'costumes/index.html')
 
-# Create your views here.
+
 def tickets(request):
     return render(request, 'costumes/tickets.html')
 
+
 @login_required
 def costumes_submission_page(request):
-    
+
     if request.method == 'POST':
         # Handle form submission logic here
         try:
@@ -30,8 +31,9 @@ def costumes_submission_page(request):
             print(f"Error uploading costume: {e}")
             return redirect('costumes_submission_page')
             # Optionally, add error handling logic here (e.g., display an error message)
-    
+
     return render(request, 'costumes/costumes_submission.html')
+
 
 def view_costumes(request):
     # This view would typically fetch costume submissions from the database
