@@ -35,3 +35,8 @@ h1 {
     max-height: 300px;
     border-radius: 5px;
 }
+
+i {
+    color: green;
+    font-size: large;
+}

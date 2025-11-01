@@ -12,13 +12,15 @@
 <!-- You would typically loop through the submitted costumes and display them here -->
 <section class="costume-list">
     {% for costume in costumes %}
-    <div class="costume-entry">
+    <div class="costume-entry" id="{{ costume.id }}">
         <div class="costume-image">
             <img src="{{ costume.image.url }}" alt="{{ costume.caption }}">
         </div>
         <div class="costume-caption">
             <div class="action-buttons">
-                <button class="like-button unclicked"><span class="like-counter">0</span> Like</button>
+                <button class="like-button {% if costume.user_has_liked %}clicked{% else %}unclicked{% endif %}">
+                    <span class="like-counter">{{ costume.likes.count }}</span><span class="like-button-icon"></span>
+                </button>
                 <button class="comment-button">Comment</button>
             </div>
             <br>
@@ -31,26 +33,67 @@
     {% endfor %}
 </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const likeButtons = document.querySelectorAll(".like-button");
-        likeButtons.forEach(button => {
-            button.addEventListener("click", function() {
-                if (button.classList.contains("clicked")) {
-                    const counter = button.querySelector(".like-counter");
-                    counter.textContent = parseInt(counter.textContent) - 1;
-                    button.classList.remove("clicked");
-                    button.classList.add("unclicked");
-                    return;
-                } else if (button.classList.contains("unclicked")) {
-                    const counter = button.querySelector(".like-counter");
-                    counter.textContent = parseInt(counter.textContent) + 1;
-                    button.classList.remove("unclicked");
-                    button.classList.add("clicked");
+<script>document.addEventListener("DOMContentLoaded", function () {
+    const likeButtons = document.querySelectorAll(".like-button");
+
+    // Initial Icon Setup - Determines starting state
+    likeButtons.forEach(button => {
+        const iconSpan = button.querySelector(".like-button-icon");
+        // Using 'fas' for filled heart (liked) and 'far' for outline heart (unliked)
+        if (button.classList.contains("clicked")) {
+            iconSpan.innerHTML = "<i class='fas fa-heart'></i>"; 
+        } else {
+            iconSpan.innerHTML = "<i class='far fa-heart'></i>";
+        }
+
+        // Add the Click Listener
+        button.addEventListener("click", function () {
+            const costumeId = button.closest(".costume-entry").id;
+            const counter = button.querySelector(".like-counter");
+            const iconSpan = button.querySelector(".like-button-icon");
+            
+            // Perform the AJAX Request to toggle the like state
+            fetch(`http://localhost:8000/like_costume/${costumeId}/`, {
+                method: 'POST',
+                headers: {
+                    // NOTE: Ensure {{ csrf_token }} is rendered correctly here
+                    'X-CSRFToken': '{{ csrf_token }}', 
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    // 1. Update the Like Counter
+                    counter.textContent = data.likes_count;
+
+                    // 2. CRITICAL FIX: Explicitly manage the classes and icon swap
+                    if (data.is_liked) { 
+                        // It is now LIKED
+                        button.classList.remove("unclicked"); // Ensure unclicked is gone
+                        button.classList.add("clicked");     // Set to clicked
+                        iconSpan.innerHTML = "<i class='fas fa-heart'></i>"; // Solid heart
+                    } else { 
+                        // It is now UNLIKED
+                        button.classList.remove("clicked");  // Ensure clicked is gone
+                        button.classList.add("unclicked");   // Set to unclicked
+                        iconSpan.innerHTML = "<i class='far fa-heart'></i>";  // Outline heart
+                    }
+                } else {
+                    console.error("Server reported an error:", data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
             });
         });
     });
+});
 </script>
 
 {% endblock %}
