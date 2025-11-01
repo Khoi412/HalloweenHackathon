@@ -18,7 +18,7 @@
         </div>
         <div class="costume-caption">
             <div class="action-buttons">
-                <button class="like-button"><span class="like-counter">0</span> Like</button>
+                <button class="like-button unclicked"><span class="like-counter">0</span> Like</button>
                 <button class="comment-button">Comment</button>
             </div>
             <br>
@@ -30,5 +30,27 @@
     <p>No costumes submitted yet.</p>
     {% endfor %}
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const likeButtons = document.querySelectorAll(".like-button");
+        likeButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                if (button.classList.contains("clicked")) {
+                    const counter = button.querySelector(".like-counter");
+                    counter.textContent = parseInt(counter.textContent) - 1;
+                    button.classList.remove("clicked");
+                    button.classList.add("unclicked");
+                    return;
+                } else if (button.classList.contains("unclicked")) {
+                    const counter = button.querySelector(".like-counter");
+                    counter.textContent = parseInt(counter.textContent) + 1;
+                    button.classList.remove("unclicked");
+                    button.classList.add("clicked");
+                }
+            });
+        });
+    });
+</script>
 
 {% endblock %}
