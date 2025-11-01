@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-    color: #ff6600;
+    color: #ff6600 !important;
     text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.5);
 }
 

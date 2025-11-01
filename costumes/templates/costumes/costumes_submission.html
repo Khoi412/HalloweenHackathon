@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit your Costume</title>
-    <link rel="stylesheet" href="../../../assets/css/submission_style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block stylesheet %}
+
+<link rel="stylesheet" href="{% static 'css/submission_style.css' %}">
+{% endblock stylesheet %}
+
+{% block title %}
+Costume Submission
+{% endblock title %}
+
+{% block content %}
     <h1>Submit your Costume</h1>
     <form action="{% url 'costumes_submission_page' %}" method="post">
         {% csrf_token %}
@@ -22,5 +25,4 @@
     <script>
         console.log("Costume submission page loaded.");
     </script>
-</body>
-</html>
+{% endblock content %}
