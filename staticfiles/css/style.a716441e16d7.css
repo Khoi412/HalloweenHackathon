@@ -1,0 +1,40 @@
+/*Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nosifer&display=swap');
+
+/*CSS Variables*/
+:root {
+  --primary-font: "Nosifer", serif; /* headings */
+  --secondary-font: "Amatic SC", sans-serif; /* body text */
+  --primary-color: #a91618;
+  /* Dark Red */
+  --secondary-color: #bfb5b3;
+  /* Nobel */
+  --black: #000000;
+  --white: #f7f5f2;
+}
+
+body {
+  color: var(--white);
+  font-family: var(--primary-font);
+  padding-top: 50px; /*Added for nav bar space to not overlap as it is now fixed top*/
+  background-color: var(--black);
+  max-width: 2000px;
+  margin: 0px auto;
+}
+
+p, a {
+  font-family: var(--secondary-font);
+  font-size: 1.7rem;
+}
+
+#index-header {
+  background: url("../images/silhouette-scary-zombie-with-dramatic-background.d93b59452fce.jpg") no-repeat 10%
+    20% fixed;
+  height: 100%;
+  background-size: contain;
+  width: auto;
+  box-shadow: inset 0 -6px 24px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin-top: 42px;
+}
