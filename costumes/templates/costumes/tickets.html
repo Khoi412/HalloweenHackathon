@@ -8,5 +8,103 @@ Tickets
 
 {% block content %}
 
+<main>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="p-4 mb-4">
+          <h2 class="text-center mb-4">Choose Your Party</h2>
 
-    {% endblock content %} 
+          <!-- Event Selection -->
+          <form id="ticketForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="event" class="form-label">Select Event</label>
+              <select id="event" name="event" class="form-select" required>
+                <option value="" data-price="0">-- Choose an Event --</option>
+                <option value="oct31" data-price="16.99">Nightmare on Grand Ave – Oct 31 (£16.99)</option>
+                <option value="oct26" data-price="13.99">The Haunted Rave – Oct 26 (£13.99)</option>
+                <option value="oct25" data-price="14.99">Halloween Haunt Night – Oct 25 (£14.99)</option>
+              </select>
+            </div>
+
+            <!-- Ticket Quantity -->
+            <div class="mb-3">
+              <label for="tickets" class="form-label">Number of Tickets</label>
+              <select id="tickets" name="tickets" class="form-select" required>
+                <option value="1">1 Ticket</option>
+                <option value="2">2 Tickets</option>
+                <option value="3">3 Tickets</option>
+                <option value="4">4 Tickets</option>
+                <option value="5">5 Tickets</option>
+              </select>
+            </div>
+
+            <!-- User Info -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+            </div>
+
+            <!-- Payment Section -->
+            <h3 class="mt-4 mb-3">Payment Details</h3>
+
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input type="text" id="cardNumber"  maxlength="16" class="form-control" placeholder="1234 5678 9012 3456" required>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="expiry" class="form-label">Expiry Date</label>
+                <input type="text"  maxlength="4" id="expiry" class="form-control" placeholder="MM/YY" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text"  maxlength="3" id="cvv" class="form-control" placeholder="123" required>
+              </div>
+            </div>
+
+            <!-- Total Display -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <h4>Total:</h4>
+              <h4 class="price" id="total">£0</h4>
+            </div>
+
+            <p class="text-secondary mt-2 text-center">If you're logged in, your purchased tickets will automatically be added to your account.</p>
+
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-danger btn-lg">Complete Purchase</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </main>
+
+      {% block extrajs %}
+  <!-- Total Calculation Script -->
+  <script>
+    const eventSelect = document.getElementById('event');
+    const ticketSelect = document.getElementById('tickets');
+    const totalDisplay = document.getElementById('total');
+
+    function updateTotal() {
+      const price = parseFloat(eventSelect.selectedOptions[0].getAttribute('data-price')) || 0;
+      const quantity = parseInt(ticketSelect.value) || 1;
+      const total = price * quantity;
+      totalDisplay.textContent = `£${total.toFixed(2)}`;
+    }
+
+    eventSelect.addEventListener('change', updateTotal);
+    ticketSelect.addEventListener('change', updateTotal);
+  </script>
+    {% endblock extrajs %}
+
+{% endblock content %} 
