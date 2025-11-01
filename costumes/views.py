@@ -8,6 +8,10 @@ from django.contrib.auth.decorators import login_required
 def homepage(request):
     return render(request, 'costumes/index.html')
 
+# Create your views here.
+def tickets(request):
+    return render(request, 'costumes/tickets.html')
+
 @login_required
 def costumes_submission_page(request):
     
