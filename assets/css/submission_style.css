@@ -1,0 +1,118 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+h1 {
+    color: #ff6600;
+    text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.5);
+}
+
+label {
+    color: white;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: white;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #bbb;
+}
+
+input:active, textarea:active {
+    box-shadow: inset 0 0 10px #ff6600;
+}
+
+/* remove browser's blue focus ring */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: none;
+    box-shadow: inset 0 0 10px #ff6600;
+}
+
+input[type="file"] {
+    padding: 6px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: #bbb;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Modern browsers (button part) */
+input[type="file"]::file-selector-button {
+    padding: 8px 12px;
+    margin-right: 8px;
+    background: linear-gradient(180deg, #ff7f26, #ff6600);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.08s ease;
+}
+
+/* WebKit fallback */
+input[type="file"]::-webkit-file-upload-button {
+    padding: 8px 12px;
+    margin-right: 8px;
+    background: linear-gradient(180deg, #ff7f26, #ff6600);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.08s ease;
+}
+
+input[type="file"]::file-selector-button:hover,
+input[type="file"]::-webkit-file-upload-button:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+input[type="file"]::file-selector-button:active,
+input[type="file"]::-webkit-file-upload-button:active {
+    transform: translateY(0);
+}
+
+/* ensure selected filename is readable */
+input[type="file"]::file-selector-button,
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"] {
+    vertical-align: middle;
+}
+
+button {
+    background-color: #ff6600;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #e65c00;
+    box-shadow: 0 4px 8px rgba(255, 102, 0, 0.2);
+}
