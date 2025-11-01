@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Costumes{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/view_costume.css' %}" type="text/css">
+{% endblock stylesheet %}
+
+{% block content %}
+<h1>Costume Submissions</h1>
+<p>Here you can view all the submitted costumes.</p>
+<!-- You would typically loop through the submitted costumes and display them here -->
+<section class="costume-list">
+    {% for costume in costumes %}
+    <div class="costume-entry">
+        <div class="costume-image">
+            <img src="{{ costume.image.url }}" alt="{{ costume.caption }}">
+        </div>
+        <div class="costume-caption">
+            <h4>{{ costume.caption }}</h4>
+            <p>Submitted by: {{ costume.user.username }} on {{ costume.timestamp }}</p>
+        </div>
+    </div>
+    {% empty %}
+    <p>No costumes submitted yet.</p>
+    {% endfor %}
+</section>
+
+{% endblock %}
