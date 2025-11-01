@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 class Costume(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='costumes')
-    image = models.ImageField(upload_to='costume_images/')
+    image = CloudinaryField('image')
     caption = models.TextField(blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 

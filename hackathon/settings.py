@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from urllib.parse import urlparse, parse_qsl
-
+import cloudinary # Make sure this is at the top with other imports
 load_dotenv()
 
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'dj_database_url',
     'gunicorn',
     'cloudinary',
+    'cloudinary_storage',
     'allauth', 
     'django.contrib.sites', 
     'allauth.account',
@@ -182,3 +183,22 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# # Cloudinary credentials from environment variables
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+#     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+#     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+# }
+
+cloudinary.config( 
+  cloud_name = os.getenv('CLOUD_NAME'), 
+  api_key = os.getenv('CLOUDINARY_API_KEY'), 
+  api_secret = os.getenv('CLOUDINARY_API_SECRET') 
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+print("Cloudinary API Key:", os.getenv('CLOUDINARY_API_KEY'))
