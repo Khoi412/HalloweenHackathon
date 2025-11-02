@@ -9,6 +9,10 @@
   /* Dark Red */
   --secondary-color: #bfb5b3;
   /* Nobel */
+  --orange: #ff4500;
+  /* Orange */
+  --green: #18A916;
+  /* Green */
   --black: #000000;
   --white: #f7f5f2;
 }
@@ -117,7 +121,7 @@ button:hover {
   width: 100%;
 }
 
-#account-navbar {
+#account-navbar, #nav-toggle {
   display: flex;
   justify-content: end;
   width: 0%;

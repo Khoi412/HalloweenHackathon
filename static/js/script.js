@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Scare 1 logic ---
     if (scare1) {
-      if (scrollY > windowHeight * 1.2 && scrollY < windowHeight * 1.9) {
+      if (scrollY > windowHeight * 0.5 && scrollY < windowHeight * 1.2) {
         scare1.style.opacity = "1";
         scare1.style.zIndex = "-999";
       } else {
@@ -20,6 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // --- Scare 2 logic ---
+    if (scare2) {
+      // Trigger later in the scroll (near bottom)
+      if (scrollY > windowHeight * 1.2 && scrollY < windowHeight * 1.7) {
+        scare2.style.opacity = "1";
+        scare2.style.zIndex = "-999";
+      } else {
+        scare2.style.opacity = "0";
+        scare2.style.zIndex = "-1";
+      }
+    }
   });
 });
 

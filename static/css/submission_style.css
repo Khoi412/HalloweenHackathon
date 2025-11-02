@@ -1,18 +1,35 @@
+/*CSS Variables*/
+:root {
+  --primary-font: "Nosifer", serif; /* headings */
+  --secondary-font: "Road Rage", sans-serif; /* body text */
+  --primary-color: #a91618;
+  /* Dark Red */
+  --secondary-color: #bfb5b3;
+  /* Nobel */
+  --orange: #ff4500;
+  /* Orange */
+  --green: #18A916;
+  /* Green */
+  --black: #000000;
+  --white: #f7f5f2;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: black;
+    background-color: var(--black);
+    margin: 0px auto;
 }
 
 h1 {
-    color: #ff6600 !important;
+    color: var(--orange) !important;
     text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.5);
 }
 
 label {
-    color: white;
+    color: var(--white);
     margin-bottom: 5px;
 }
 
@@ -35,18 +52,18 @@ input, textarea {
 }
 
 input::placeholder, textarea::placeholder {
-    color: #bbb;
+    color: var(--secondary-color);
 }
 
 input:active, textarea:active {
-    box-shadow: inset 0 0 10px #ff6600;
+    box-shadow: inset 0 0 10px var(--orange);
 }
 
 /* remove browser's blue focus ring */
 input:focus, textarea:focus {
     outline: none;
     box-shadow: none;
-    box-shadow: inset 0 0 10px #ff6600;
+    box-shadow: inset 0 0 10px var(--orange);
 }
 
 input[type="file"] {
@@ -54,7 +71,7 @@ input[type="file"] {
     border: none;
     border-radius: 3px;
     background-color: #333;
-    color: #bbb;
+    color: var(--secondary-color);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -64,8 +81,8 @@ input[type="file"] {
 input[type="file"]::file-selector-button {
     padding: 8px 12px;
     margin-right: 8px;
-    background: linear-gradient(180deg, #ff7f26, #ff6600);
-    color: white;
+    background: linear-gradient(180deg, #ff7f26, #ff4500);
+    color: var(--white);
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -76,8 +93,8 @@ input[type="file"]::file-selector-button {
 input[type="file"]::-webkit-file-upload-button {
     padding: 8px 12px;
     margin-right: 8px;
-    background: linear-gradient(180deg, #ff7f26, #ff6600);
-    color: white;
+    background: linear-gradient(180deg, #ff7f26, #ff4500);
+    color: var(--white);
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -103,8 +120,8 @@ input[type="file"] {
 }
 
 button {
-    background-color: #ff6600;
-    color: white;
+    background-color: var(--orange);
+    color: var(--white);
     cursor: pointer;
     transition: background-color 0.3s ease;
     padding: 10px;
@@ -113,6 +130,6 @@ button {
 }
 
 button:hover {
-    background-color: #e65c00;
+    background-color: var(--primary-color);
     box-shadow: 0 4px 8px rgba(255, 102, 0, 0.2);
 }

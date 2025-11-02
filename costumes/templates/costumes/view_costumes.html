@@ -7,8 +7,11 @@
 {% endblock stylesheet %}
 
 {% block content %}
-<h1>Costume Submissions</h1>
-<p>Here you can view all the submitted costumes.</p>
+<div class="text-center">
+    <h1>Costume Submissions</h1>
+    <p>Here you can view all the submitted costumes. <a class="ps-2" href="{% url 'costumes_submission_page' %}"><i class="fa-solid fa-mask"></i> Submit your own here! <i class="fa-solid fa-mask"></i></a></p>
+</div>
+
 <!-- You would typically loop through the submitted costumes and display them here -->
 <section class="costume-list">
     {% for costume in costumes %}
