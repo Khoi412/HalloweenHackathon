@@ -2,9 +2,21 @@
 
 # Overview
 
-HauntHub was created as part of a hackathon project to demonstrate end-to-end data analysis and visualization for a fictional Halloween events platform.
-The project combines mock event listings with an interactive analytics dashboard to explore how event organizers might track ticket prices, attendance, and location-based trends.
-All data is synthetic and designed purely for learning and demonstration purposes.
+The Halloween Hackathon project is a web application designed to combine event ticketing with a fun, community-driven costume showcase.
+Users can browse and purchase tickets for Halloween-themed events, while also sharing photos of their costumes for others to view and comment on.
+
+The site integrates a Django-based event and costume platform with a Streamlit-powered analytics dashboard.
+Organizers can use the dashboard to gain insights into event attendance, pricing, and city-level trends, helping them plan future events more effectively.
+
+- Key user features include:
+
+  - Browsing and purchasing tickets for local Halloween events
+
+  - Uploading costume photos to participate in community sharing
+
+  - Viewing and commenting on others’ costumes
+
+  - Access to an analytics dashboard (for admins or organizers) showing ticket and event insights
 
 # Tech Stack
 
