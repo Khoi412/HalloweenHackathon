@@ -15,17 +15,11 @@
 }
 
 body {
-  color: var(--white);
-  font-family: var(--secondary-font);
-  font-size: 1.5rem;
-  padding-top: 34px; /*Added for nav bar space to not overlap as it is now fixed top*/
+  padding-top: 67px; /*Added for nav bar space to not overlap as it is now fixed top*/
   background: var(--black);
-  max-width: 2000px;
-  margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
 }
 
 h1 {
