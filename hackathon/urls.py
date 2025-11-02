@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from costumes.views import homepage, costumes_submission_page, view_costumes, like_costume, tickets
+from costumes.views import homepage, costumes_submission_page, view_costumes, like_costume, tickets, get_comments, comment_costume
 from django.urls import include
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # Include allauth URLs
     path('', homepage, name='homepage'),
     path('costumes/tickets/', tickets, name='tickets'),
-
+    path('get_comments/<int:costume_id>/', get_comments, name='get_comments'),
+    path('comment/<int:costume_id>/', comment_costume, name='comment_costume'),
 
 ]

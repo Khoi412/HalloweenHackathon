@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import Costume, Like, Comment
 from django.contrib.auth.decorators import login_required
-
+import json
 
 # Create your views here.
 def homepage(request):
@@ -71,3 +71,53 @@ def like_costume(request, costume_id):
         })
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
+
+
+@login_required
+def comment_costume(request, costume_id):
+    if request.method == 'POST':
+        try:
+            costume = Costume.objects.get(pk=costume_id)
+        except Costume.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Costume not found'}, status=404)
+
+        try:
+            data = json.loads(request.body)
+            text = data.get('text', '').strip()
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+
+        if not text:
+            return JsonResponse({'status': 'error', 'message': 'Comment text cannot be empty'}, status=400)
+
+        comment = Comment.objects.create(
+            user=request.user,
+            costume=costume,
+            text=text
+        )
+
+        return JsonResponse({
+            'status': 'success',
+            'comment': {
+                'user': comment.user.username,
+                'text': comment.text,
+                'timestamp': comment.timestamp.strftime('%Y-%m-%d %H:%M'),
+            }
+        })
+
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
+
+def get_comments(request, costume_id):
+    try:
+        costume = Costume.objects.get(pk=costume_id)
+    except Costume.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Costume not found'}, status=404)
+
+    comments = costume.comments.all().order_by('-timestamp')
+    comments_data = [{
+        'user': comment.user.username,
+        'text': comment.text,
+        'timestamp': comment.timestamp.strftime('%Y-%m-%d %H:%M'),
+    } for comment in comments]
+
+    return JsonResponse({'status': 'success', 'comments': comments_data})
