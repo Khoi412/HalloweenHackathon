@@ -90,7 +90,7 @@ button:hover {
 #index-header {
   position: relative;
   background: url(../images/silhouette-scary-zombie-with-dramatic-background.jpg)
-              no-repeat fixed;
+  no-repeat 20% 0% fixed;
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -443,7 +443,11 @@ button:hover {
 
 /* Changes settings below 768px (medium) */
 @media screen and (max-width: 768px) {
-
+#index-header {
+  background: url(../images/silhouette-scary-zombie-with-dramatic-background.jpg)
+  no-repeat 53% 0% fixed;
+  background-size: cover;
+}
 }
 
 /* Changes settings below 619 px (Small) */
