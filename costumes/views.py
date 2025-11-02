@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import Costume, Like, Comment
 from django.contrib.auth.decorators import login_required
-
+import json
 
 # Create your views here.
 def homepage(request):
@@ -73,6 +73,7 @@ def like_costume(request, costume_id):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
 
 
+@login_required
 def comment_costume(request, costume_id):
     if request.method == 'POST':
         try:
@@ -80,7 +81,12 @@ def comment_costume(request, costume_id):
         except Costume.DoesNotExist:
             return JsonResponse({'status': 'error', 'message': 'Costume not found'}, status=404)
 
-        text = request.POST.get('comment_text', '').strip()
+        try:
+            data = json.loads(request.body)
+            text = data.get('text', '').strip()
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+
         if not text:
             return JsonResponse({'status': 'error', 'message': 'Comment text cannot be empty'}, status=400)
 
@@ -100,7 +106,6 @@ def comment_costume(request, costume_id):
         })
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
-
 
 def get_comments(request, costume_id):
     try:

@@ -28,6 +28,6 @@ urlpatterns = [
     path('', homepage, name='homepage'),
     path('costumes/tickets/', tickets, name='tickets'),
     path('get_comments/<int:costume_id>/', get_comments, name='get_comments'),
-    path('costumes/view/comment/<int:costume_id>/', comment_costume, name='comment_costume'),
+    path('comment/<int:costume_id>/', comment_costume, name='comment_costume'),
 
 ]
