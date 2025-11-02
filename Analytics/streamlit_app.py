@@ -62,7 +62,7 @@ with st.expander("View Full Dataset"):
         height=400
     )
 # Optional: let users download the raw dataset
-    
+
 csv_data = df.to_csv(index=False).encode("utf-8")
 st.download_button(
         label="⬇️ Download Full Dataset as CSV",
