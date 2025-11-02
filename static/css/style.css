@@ -5,7 +5,6 @@
 :root {
   --primary-font: "Nosifer", serif; /* headings */
   --secondary-font: "Road Rage", sans-serif; /* body text */
-
   --primary-color: #a91618;
   /* Dark Red */
   --secondary-color: #bfb5b3;
@@ -19,7 +18,7 @@ body {
   font-family: var(--secondary-font);
   font-size: 1.5rem;
   padding-top: 34px; /*Added for nav bar space to not overlap as it is now fixed top*/
-  background-color: var(--black);
+  background: var(--black);
   max-width: 2000px;
   margin: 0px auto;
 }
@@ -41,6 +40,15 @@ p, a {
   color: var(--secondary-color);
   font-size: 1.6rem;
 }
+
+a:hover{
+  color: #ff4500;
+}
+
+button:hover {
+  box-shadow: 0 0 10px #c1121f;
+}
+
 
 /* Index */
 #index-header {

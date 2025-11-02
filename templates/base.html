@@ -62,9 +62,10 @@
           <a class="nav-link" href="{% url 'tickets' %}">Tickets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="{% url 'view_costumes' %}" >Costumes</a>
         </li>
       </ul>
+
       <!-- Account Dropdown -->
             <ul id="account-navbar" class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item dropdown user-dropdown ul-blank no-decor">
@@ -118,11 +119,54 @@
 
     <!-- Footer section -->
     <!-- mt-auto added to push footer to the bottom of the page -->
-    <footer id="footer" class="mt-auto">
-      <div class="container section">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum alias quos reprehenderit, rerum obcaecati facilis atque perspiciatis itaque accusamus a labore totam cumque sequi beatae ducimus pariatur neque aspernatur. Quos.</p>
+<footer class="site-footer bg-dark text-light py-4 mt-5">
+  <div class="container text-center text-md-start">
+    <div class="row">
+      <!-- Column 1: Logo or Brand -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h5 class="fw-bold">MyWebsite</h5>
+        <p class="small text-muted">
+          &copy; <span id="year"></span> MyWebsite. All rights reserved.
+        </p>
       </div>
-    </footer>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h5 class="fw-bold">Quick Links</h5>
+        <ul class="list-unstyled ">
+          <li><a href="{% url 'homepage' %}" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-light text-decoration-none">About</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Services</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Socials -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">Follow Us</h5>
+        <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Facebook"
+                aria-label="Visit us on Facebook.(Opens in new tab)" href="https://www.facebook.com/" rel="noreferrer"><i
+                  class="fa-brands fa-fw fa-facebook-square"></i></a>
+        <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Twitter"
+                aria-label="Visit us on Twitter.(Opens in new tab)" href="https://twitter.com/" rel="noreferrer"><i
+                  class="fa-brands fa-fw fa-square-x-twitter"></i></a>
+        <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Instagram"
+                aria-label="Visit us on Instagram.(Opens in new tab)" href="https://www.instagram.com/" rel="noreferrer"><i
+                  class="fa-brands fa-fw fa-instagram-square"></i></a>
+                  <a target="_blank" class="icon-footer-sns" title="Join our Discord Chat"
+                aria-label="Visit us on Discord.(Opens in new tab)" href="https://discord.gg/" rel="noreferrer"><i
+                  class="fa-brands fa-fw fa-discord"></i></a>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-3">
+
+    <div class="text-center small text-muted">
+      Built with ❤️ by <a href="#" class="text-light text-decoration-none">Your Name</a>
+    </div>
+  </div>
+</footer>
+
 
     {% block postloadjs %}
     <!-- Stripe JS -->
