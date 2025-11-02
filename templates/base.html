@@ -119,53 +119,48 @@
 
     <!-- Footer section -->
     <!-- mt-auto added to push footer to the bottom of the page -->
-<footer class="site-footer bg-dark text-light py-4 mt-5">
+
+    <footer class="halloween-footer text-light py-4 mt-5">
   <div class="container text-center text-md-start">
-    <div class="row">
-      <!-- Column 1: Logo or Brand -->
+    <div class="row align-items-center">
+      
+      <!-- Left column -->
       <div class="col-md-4 mb-3 mb-md-0">
-        <h5 class="fw-bold">MyWebsite</h5>
-        <p class="small text-muted">
-          &copy; <span id="year"></span> MyWebsite. All rights reserved.
+        <h5 class="footer-title">🦇 HauntHub</h5>
+        <p class="small text-muted mb-0">
+          &copy; <span id="year"></span> HauntHub. All rights reserved.
         </p>
       </div>
 
-      <!-- Column 2: Quick Links -->
-      <div class="col-md-4 mb-3 mb-md-0">
-        <h5 class="fw-bold">Quick Links</h5>
-        <ul class="list-unstyled ">
-          <li><a href="{% url 'homepage' %}" class="text-light text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-light text-decoration-none">About</a></li>
-          <li><a href="#" class="text-light text-decoration-none">Services</a></li>
-          <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+      <!-- Middle column -->
+      <div class="col-md-4 mb-3 mb-md-0 text-center">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a href="#" class="footer-link">Home</a></li>
+          <li class="list-inline-item"><a href="#" class="footer-link">Shop</a></li>
+          <li class="list-inline-item"><a href="#" class="footer-link">About</a></li>
+          <li class="list-inline-item"><a href="#" class="footer-link">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Socials -->
-      <div class="col-md-4">
-        <h5 class="fw-bold">Follow Us</h5>
+      <!-- Right column -->
+      <div class="col-md-4 text-md-end text-center">
         <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Facebook"
                 aria-label="Visit us on Facebook.(Opens in new tab)" href="https://www.facebook.com/" rel="noreferrer"><i
                   class="fa-brands fa-fw fa-facebook-square"></i></a>
-        <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Twitter"
+              <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Twitter"
                 aria-label="Visit us on Twitter.(Opens in new tab)" href="https://twitter.com/" rel="noreferrer"><i
                   class="fa-brands fa-fw fa-square-x-twitter"></i></a>
-        <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Instagram"
+              <a target="_blank" class="icon-footer-sns" title="Follow @HauntHub on Instagram"
                 aria-label="Visit us on Instagram.(Opens in new tab)" href="https://www.instagram.com/" rel="noreferrer"><i
                   class="fa-brands fa-fw fa-instagram-square"></i></a>
-                  <a target="_blank" class="icon-footer-sns" title="Join our Discord Chat"
-                aria-label="Visit us on Discord.(Opens in new tab)" href="https://discord.gg/" rel="noreferrer"><i
-                  class="fa-brands fa-fw fa-discord"></i></a>
       </div>
-    </div>
 
-    <hr class="border-secondary my-3">
-
-    <div class="text-center small text-muted">
-      Built with ❤️ by <a href="#" class="text-light text-decoration-none">Your Name</a>
     </div>
   </div>
 </footer>
+
+
+
 
 
     {% block postloadjs %}

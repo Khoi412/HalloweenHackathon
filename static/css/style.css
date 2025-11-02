@@ -123,6 +123,63 @@ button:hover {
   width: 0%;
 }
 
+/* Footer */
+.halloween-footer {
+  background: radial-gradient(circle at top, #0c0c0c 0%, #000 80%);
+  border-top: 1px solid rgba(255, 0, 0, 0.15);
+  color: #ddd;
+  position: relative;
+  overflow: hidden;
+}
+
+.halloween-footer::before {
+  position: absolute;
+  top: -100px;
+  left: -50%;
+  width: 200%;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.08) 0%, transparent 70%);
+  animation: pulse-glow 6s infinite ease-in-out;
+}
+
+.footer-title {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.footer-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-color);
+}
+
+.footer-social {
+  color: #999;
+  margin-left: 10px;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+
 /* Payments */
 #loading-overlay {
 	display: none;
