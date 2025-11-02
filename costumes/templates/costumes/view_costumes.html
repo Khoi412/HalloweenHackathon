@@ -9,7 +9,8 @@
 {% block content %}
 <div class="text-center">
     <h1>Costume Submissions</h1>
-    <p>Here you can view all the submitted costumes. <br> <a class="ps-2" href="{% url 'costumes_submission_page' %}"><i class="fa-solid fa-mask"></i> Submit your own here! <i class="fa-solid fa-mask"></i></a></p>
+    <p>Here you can view all the submitted costumes. <br> <a class="ps-2" href="{% url 'costumes_submission_page' %}"><i
+                class="fa-solid fa-mask"></i> Submit your own here! <i class="fa-solid fa-mask"></i></a></p>
 </div>
 
 <!-- You would typically loop through the submitted costumes and display them here -->
@@ -24,7 +25,7 @@
             </div>
             <form id="comment-form">
                 <textarea id="comment-text" placeholder="Add a comment..." required></textarea>
-                <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+                <button type="submit" class="btn" id="submit-comment-button">Submit Comment</button>
             </form>
         </div>
     </div>
@@ -35,7 +36,8 @@
         </div>
         <div class="costume-caption">
             <div class="action-buttons">
-                <button class="btn btn-success  like-button {% if costume.user_has_liked %}clicked{% else %}unclicked{% endif %}">
+                <button
+                    class="btn btn-success  like-button {% if costume.user_has_liked %}clicked{% else %}unclicked{% endif %}">
                     <span class="like-counter">{{ costume.likes.count }}</span> <span class="like-button-icon"></span>
                 </button>
                 <button class="comment-button btn btn-success ms-4">Comment</button>
@@ -51,87 +53,105 @@
 </section>
 
 <script>document.addEventListener("DOMContentLoaded", function () {
-    const likeButtons = document.querySelectorAll(".like-button");
+        const likeButtons = document.querySelectorAll(".like-button");
 
-    // Initial Icon Setup - Determines starting state
-    likeButtons.forEach(button => {
-        const iconSpan = button.querySelector(".like-button-icon");
-        // Using 'fas' for filled heart (liked) and 'far' for outline heart (unliked)
-        if (button.classList.contains("clicked")) {
-            iconSpan.innerHTML = "<i class='fas fa-heart'></i>"; 
-        } else {
-            iconSpan.innerHTML = "<i class='far fa-heart'></i>";
-        }
-
-        // Add the Click Listener
-        button.addEventListener("click", function () {
-            const costumeId = button.closest(".costume-entry").id;
-            const counter = button.querySelector(".like-counter");
+        // Initial Icon Setup - Determines starting state
+        likeButtons.forEach(button => {
             const iconSpan = button.querySelector(".like-button-icon");
-            
-            // Perform the AJAX Request to toggle the like state
-            fetch(`/like_costume/${costumeId}/`, {
-                method: 'POST',
-                headers: {
-                    // NOTE: Ensure {{ csrf_token }} is rendered correctly here
-                    'X-CSRFToken': '{{ csrf_token }}', 
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.status === 'success') {
-                    // 1. Update the Like Counter
-                    counter.textContent = data.likes_count;
+            // Using 'fas' for filled heart (liked) and 'far' for outline heart (unliked)
+            if (button.classList.contains("clicked")) {
+                iconSpan.innerHTML = "<i class='fas fa-heart'></i>";
+            } else {
+                iconSpan.innerHTML = "<i class='far fa-heart'></i>";
+            }
 
-                    // 2. CRITICAL FIX: Explicitly manage the classes and icon swap
-                    if (data.is_liked) { 
-                        // It is now LIKED
-                        button.classList.remove("unclicked"); // Ensure unclicked is gone
-                        button.classList.add("clicked");     // Set to clicked
-                        iconSpan.innerHTML = "<i class='fas fa-heart'></i>"; // Solid heart
-                    } else { 
-                        // It is now UNLIKED
-                        button.classList.remove("clicked");  // Ensure clicked is gone
-                        button.classList.add("unclicked");   // Set to unclicked
-                        iconSpan.innerHTML = "<i class='far fa-heart'></i>";  // Outline heart
-                    }
-                } else {
-                    console.error("Server reported an error:", data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
+            // Add the Click Listener
+            button.addEventListener("click", function () {
+                const costumeId = button.closest(".costume-entry").id;
+                const counter = button.querySelector(".like-counter");
+                const iconSpan = button.querySelector(".like-button-icon");
+
+                // Perform the AJAX Request to toggle the like state
+                fetch(`/like_costume/${costumeId}/`, {
+                    method: 'POST',
+                    headers: {
+                        // NOTE: Ensure {{ csrf_token }} is rendered correctly here
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/json'
+                    },
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // 1. Update the Like Counter
+                            counter.textContent = data.likes_count;
+
+                            // 2. CRITICAL FIX: Explicitly manage the classes and icon swap
+                            if (data.is_liked) {
+                                // It is now LIKED
+                                button.classList.remove("unclicked"); // Ensure unclicked is gone
+                                button.classList.add("clicked");     // Set to clicked
+                                iconSpan.innerHTML = "<i class='fas fa-heart'></i>"; // Solid heart
+                            } else {
+                                // It is now UNLIKED
+                                button.classList.remove("clicked");  // Ensure clicked is gone
+                                button.classList.add("unclicked");   // Set to unclicked
+                                iconSpan.innerHTML = "<i class='far fa-heart'></i>";  // Outline heart
+                            }
+                        } else {
+                            console.error("Server reported an error:", data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Fetch error:', error);
+                    });
             });
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const commentButtons = document.querySelectorAll(".comment-button");
+    function fetchComments(costumeId) {
+        fetch(`/get_comments/${costumeId}/`)
+            .then(response => response.json())
+            .then(data => {
+                const commentsSection = document.querySelector(".comments-section");
+                commentsSection.innerHTML = ""; // Clear existing comments
+                if (data.comments.length === 0) {
+                    commentsSection.innerHTML = "<p>No comments yet. Be the first to comment!</p>";
+                }
+                data.comments.forEach(comment => {
+                    const commentDiv = document.createElement("div");
+                    commentDiv.classList.add("comment");
+                    commentDiv.innerHTML = `<div><strong id="comment-user">${comment.user}:</strong> ${comment.text} <span class="timestamp">${comment.timestamp}</span></div>`;
+                    commentsSection.appendChild(commentDiv);
+                });
+            });
+    }
 
-    commentButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const costumeId = button.closest(".costume-entry").id;
+    document.addEventListener("DOMContentLoaded", function () {
+        const commentButtons = document.querySelectorAll(".comment-button");
+
+        commentButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const costumeId = button.closest(".costume-entry").id;
+                const commentModal = document.querySelector(".comment-modal");
+                commentModal.classList.remove("hide");
+                commentModal.classList.add("show");
+                fetchComments(costumeId);
+            });
+        });
+
+        const closeButton = document.querySelector(".close-button");
+        closeButton.addEventListener("click", function () {
             const commentModal = document.querySelector(".comment-modal");
-            commentModal.classList.remove("hide");
-            commentModal.classList.add("show");
-            console.log(`Comment feature for costume ID ${costumeId} is not implemented yet.`);
+            commentModal.classList.remove("show");
+            commentModal.classList.add("hide");
         });
     });
-
-    const closeButton = document.querySelector(".close-button");
-    closeButton.addEventListener("click", function () {
-        const commentModal = document.querySelector(".comment-modal");
-        commentModal.classList.remove("show");
-        commentModal.classList.add("hide");
-    });
-});
 </script>
 
 {% endblock %}

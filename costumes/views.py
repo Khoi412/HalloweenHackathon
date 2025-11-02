@@ -71,3 +71,48 @@ def like_costume(request, costume_id):
         })
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
+
+
+def comment_costume(request, costume_id):
+    if request.method == 'POST':
+        try:
+            costume = Costume.objects.get(pk=costume_id)
+        except Costume.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Costume not found'}, status=404)
+
+        text = request.POST.get('comment_text', '').strip()
+        if not text:
+            return JsonResponse({'status': 'error', 'message': 'Comment text cannot be empty'}, status=400)
+
+        comment = Comment.objects.create(
+            user=request.user,
+            costume=costume,
+            text=text
+        )
+
+        return JsonResponse({
+            'status': 'success',
+            'comment': {
+                'user': comment.user.username,
+                'text': comment.text,
+                'timestamp': comment.timestamp.strftime('%Y-%m-%d %H:%M'),
+            }
+        })
+
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
+
+
+def get_comments(request, costume_id):
+    try:
+        costume = Costume.objects.get(pk=costume_id)
+    except Costume.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Costume not found'}, status=404)
+
+    comments = costume.comments.all().order_by('-timestamp')
+    comments_data = [{
+        'user': comment.user.username,
+        'text': comment.text,
+        'timestamp': comment.timestamp.strftime('%Y-%m-%d %H:%M'),
+    } for comment in comments]
+
+    return JsonResponse({'status': 'success', 'comments': comments_data})

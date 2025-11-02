@@ -73,6 +73,8 @@ a:hover {
     color: var(--green);
 }
 
+
+/* comment modal */
 .comment-modal {
     background-color: var(--black);
     color: var(--white);
@@ -103,6 +105,21 @@ a:hover {
     display: none;
 }
 
+#submit-comment-button {
+    margin-top: 10px;
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit-comment-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
 .show {
     position: fixed;
     top: 0;
@@ -114,4 +131,13 @@ a:hover {
     /* align-items: center; */
     justify-content: center;
     z-index: 1000;
+}
+
+.timestamp {
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+#comment-user {
+    color: var(--green);
 }
