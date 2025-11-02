@@ -14,6 +14,20 @@
 
 <!-- You would typically loop through the submitted costumes and display them here -->
 <section class="costume-list">
+    <div class="comment-modal hide">
+        <div class="comment-modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Comments</h2>
+            <div class="comments-section">
+                loading....
+                <!-- Comments will be dynamically loaded here -->
+            </div>
+            <form id="comment-form">
+                <textarea id="comment-text" placeholder="Add a comment..." required></textarea>
+                <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+            </form>
+        </div>
+    </div>
     {% for costume in costumes %}
     <div class="costume-entry" id="{{ costume.id }}">
         <div class="costume-image">
@@ -95,6 +109,27 @@
                 console.error('Fetch error:', error);
             });
         });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const commentButtons = document.querySelectorAll(".comment-button");
+
+    commentButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const costumeId = button.closest(".costume-entry").id;
+            const commentModal = document.querySelector(".comment-modal");
+            commentModal.classList.remove("hide");
+            commentModal.classList.add("show");
+            console.log(`Comment feature for costume ID ${costumeId} is not implemented yet.`);
+        });
+    });
+
+    const closeButton = document.querySelector(".close-button");
+    closeButton.addEventListener("click", function () {
+        const commentModal = document.querySelector(".comment-modal");
+        commentModal.classList.remove("show");
+        commentModal.classList.add("hide");
     });
 });
 </script>
