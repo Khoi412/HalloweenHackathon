@@ -8,128 +8,141 @@
   /* Nobel */
   --orange: #ff4500;
   /* Orange */
-  --green: #18A916;
+  --green: #18a916;
   /* Green */
   --black: #000000;
   --white: #f7f5f2;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: var(--black);
-    margin: 0px auto;
+  color: var(--white);
+  font-family: var(--secondary-font);
+  font-size: 1.5rem;
+  padding-top: 34px; /*Added for nav bar space to not overlap as it is now fixed top*/
+  background: var(--black);
+  max-width: 2000px;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 h1 {
-    color: var(--orange) !important;
-    text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.5);
+  color: var(--orange) !important;
+  text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.5);
 }
 
 label {
-    color: var(--white);
-    margin-bottom: 5px;
+  color: var(--white);
+  margin-bottom: 5px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 5px;
 }
 
-input, textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #333;
-    color: white;
+input,
+textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #333;
+  color: white;
 }
 
-input::placeholder, textarea::placeholder {
-    color: var(--secondary-color);
+input::placeholder,
+textarea::placeholder {
+  color: var(--secondary-color);
 }
 
-input:active, textarea:active {
-    box-shadow: inset 0 0 10px var(--orange);
+input:active,
+textarea:active {
+  box-shadow: inset 0 0 10px var(--orange);
 }
 
 /* remove browser's blue focus ring */
-input:focus, textarea:focus {
-    outline: none;
-    box-shadow: none;
-    box-shadow: inset 0 0 10px var(--orange);
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: inset 0 0 10px var(--orange);
 }
 
 input[type="file"] {
-    padding: 6px;
-    border: none;
-    border-radius: 3px;
-    background-color: #333;
-    color: var(--secondary-color);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  padding: 6px;
+  border: none;
+  border-radius: 3px;
+  background-color: #333;
+  color: var(--secondary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Modern browsers (button part) */
 input[type="file"]::file-selector-button {
-    padding: 8px 12px;
-    margin-right: 8px;
-    background: linear-gradient(180deg, #ff7f26, #ff4500);
-    color: var(--white);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: filter 0.15s ease, transform 0.08s ease;
+  padding: 8px 12px;
+  margin-right: 8px;
+  background: linear-gradient(180deg, #ff7f26, #ff4500);
+  color: var(--white);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.08s ease;
 }
 
 /* WebKit fallback */
 input[type="file"]::-webkit-file-upload-button {
-    padding: 8px 12px;
-    margin-right: 8px;
-    background: linear-gradient(180deg, #ff7f26, #ff4500);
-    color: var(--white);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: filter 0.15s ease, transform 0.08s ease;
+  padding: 8px 12px;
+  margin-right: 8px;
+  background: linear-gradient(180deg, #ff7f26, #ff4500);
+  color: var(--white);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.08s ease;
 }
 
 input[type="file"]::file-selector-button:hover,
 input[type="file"]::-webkit-file-upload-button:hover {
-    filter: brightness(0.95);
-    transform: translateY(-1px);
+  filter: brightness(0.95);
+  transform: translateY(-1px);
 }
 
 input[type="file"]::file-selector-button:active,
 input[type="file"]::-webkit-file-upload-button:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 /* ensure selected filename is readable */
 input[type="file"]::file-selector-button,
 input[type="file"]::-webkit-file-upload-button,
 input[type="file"] {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 button {
-    background-color: var(--orange);
-    color: var(--white);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
+  background-color: var(--orange);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
 }
 
 button:hover {
-    background-color: var(--primary-color);
-    box-shadow: 0 4px 8px rgba(255, 102, 0, 0.2);
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px #c1121f;
+}
+
+.footer-link:hover,
+.footer-title {
+  color: var(--orange);
 }

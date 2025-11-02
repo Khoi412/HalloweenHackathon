@@ -11,7 +11,7 @@ Costumes
 <header id="index-header">
   <div class="container">
     <div class="my-auto pt-4 text-center row justify-content-start">
-      <div class="col-7 pt-5" id="">
+      <div class="col-12 col-md-7 pt-5">
         <h1 class="heading-text"> Welcome to HauntHub <i class="fa-solid fa-ghost"></i> </h1>
         <p class="mt-3 heading-text">Dance with the Dead. Party 'til Dawn.</p>
       </div>
@@ -21,69 +21,70 @@ Costumes
 
 <main>
           <div class="scare-image" id="scare1">
-            <img src="{% static 'images/eyes.jpg' %}" alt="Eyes watching you">
+            <!-- <img src="{% static 'images/eyes.jpg' %}" alt="Eyes watching you"> -->
           </div>
   <!-- Party Section -->
   <section class="container">
-    <div class="party-card">
-      <div class="party-image">
-        <img src="{% static 'images/flyer-1.jpg' %}" class="d-block w-25 m-5" alt="Nightmare on Grand Ave Party Flyer">
-      </div>
 
-      <div class="party-info">
+
+    <div class="party-card p-3 row">
+        <div class="party-image col-12">
+          <img src="{% static 'images/flyer-1.jpg' %}" class="m-3" alt="Nightmare on Grand Ave Party Flyer">
+        </div>
+      <div class="party-info col-12">
         <h2 class="party-title">Nightmare on Grand Ave</h2>
         <p class="party-date"><i class="fa-solid fa-calendar"></i> Friday, October 31, 2025</p>
         <p class="party-time"><i class="fa-solid fa-clock"></i> 9:00 PM – 3:00 AM</p>
         <a class="party-location" href="https://maps.app.goo.gl/jr8YfQKqtXMXYQo28" target="_blank"><i
             class="fa-solid fa-location-dot"></i> Soho, London</a>
-        <p class="party-price"><i class="fa-solid fa-money-bill-1-wave"></i> £16.99 per person</p>
+        <p class="party-price pt-1"><i class="fa-solid fa-money-bill-1-wave"></i> £16.99 per person</p>
         <p class="party-description">
           Step into the shadows at the city’s most chilling rave.
           Dark beats, eerie lights, and a night you’ll never forget.
           Costumes encouraged. Spirits welcome.
         </p>
-        <button href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</button>
+        <a href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</a>
 
       </div>
     </div>
 
-    <div class="party-card">
-      <div class="party-image">
-        <img src="{% static 'images/flyer-2.jpg' %}" class="d-block w-25 m-5" alt="The Haunted Rave Party Flyer">
-      </div>
-
-      <div class="party-info">
+      <div class="party-card p-3 row">
+        <div class="party-image col-12">
+          <img src="{% static 'images/flyer-2.jpg' %}" class="m-3" alt="The Haunted Rave Party Flyer">
+        </div>
+        <div class="party-info col-12">
         <h2 class="party-title">The Haunted Rave</h2>
         <p class="party-date"><i class="fa-solid fa-calendar"></i> Sunday, October 26, 2025</p>
         <p class="party-time"><i class="fa-solid fa-clock"></i> 9:00 PM – 3:00 AM</p>
         <a href="https://maps.app.goo.gl/hWWLGQ5URYst2pmM6" target="_blank" class="party-location"><i
             class="fa-solid fa-location-dot"></i> Waterloo, London</a>
-        <p class="party-price"><i class="fa-solid fa-money-bill-1-wave"></i> £13.99 per person</p>
+        <p class="party-price pt-1"><i class="fa-solid fa-money-bill-1-wave"></i> £13.99 per person</p>
         <p class="party-description">
           Enter if you dare — the dance floor awaits beneath the moonlight.
           Thumping bass, twisted visuals, and creatures of the night unite.
           Dress to haunt. Dance till dawn.
         </p>
-        <button href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</button>
+        <a href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</a>
+      </div>
       </div>
 
-      <div class="party-card">
-        <div class="party-image">
-          <img src="{% static 'images/flyer-3.jpg' %}" class="d-block w-25 m-5" alt="Halloween Haunt Night Party Flyer">
+      <div class="party-card p-3 row">
+        <div class="party-image col-12">
+          <img src="{% static 'images/flyer-3.jpg' %}" class="m-3" alt="Halloween Haunt Night Party Flyer">
         </div>
-        <div class="party-info">
+        <div class="party-info col-12">
           <h2 class="party-title">Halloween Haunt Night</h2>
           <p class="party-date"><i class="fa-solid fa-calendar"></i> Saturday, October 25, 2025</p>
           <p class="party-time"><i class="fa-solid fa-clock"></i> 9:00 PM – 3:00 AM</p>
           <a href="https://maps.app.goo.gl/dWT8zEoANMEtd49S7" target="_blank" class="party-location"><i
               class="fa-solid fa-location-dot"></i> Salford, Manchester</a>
-          <p class="party-price"><i class="fa-solid fa-money-bill-1-wave"></i> £14.99 per person</p>
+          <p class="party-price pt-1"><i class="fa-solid fa-money-bill-1-wave"></i> £14.99 per person</p>
           <p class="party-description">
             Lose yourself in the dark pulse of Halloween.
             Sinister sounds, glowing masks, and endless energy.
             One night. One nightmare. All fun.
           </p>
-          <button href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</button>
+          <a href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</a>
         </div>
       </div>
 

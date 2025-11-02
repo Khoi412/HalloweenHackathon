@@ -53,6 +53,11 @@ button:hover {
   box-shadow: 0 0 10px #c1121f;
 }
 
+.btn-danger {
+  background-color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
 .scare-image {
   position: fixed;
   top: 0;
@@ -107,6 +112,10 @@ button:hover {
 
 .heading-text{
   font-size: 4rem;
+}
+
+.party-image > img {
+  width: 25%;
 }
 
 /* Navbar */
@@ -419,4 +428,43 @@ button:hover {
   100%{
     right:3px;
   }
+}
+
+/* Media query */
+/* Changes settings below 1200px (extra large) */
+@media screen and (max-width: 1200px) {
+
+}
+
+/* Changes settings below 992px (large) */
+@media screen and (max-width: 992px) {
+
+}
+
+/* Changes settings below 768px (medium) */
+@media screen and (max-width: 768px) {
+
+}
+
+/* Changes settings below 619 px (Small) */
+@media screen and (max-width: 619px) {
+ .heading-text {
+    font-size: 3rem;
+    line-height: 5rem;
+}
+
+.party-card {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.party-image > img {
+  width: 50%;
+}
+
+.party-description {
+  padding: 0 3rem;
+}
+
 }

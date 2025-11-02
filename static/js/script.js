@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Scare 2 logic ---
     if (scare2) {
       // Trigger later in the scroll (near bottom)
-      if (scrollY > windowHeight * 1.2 && scrollY < windowHeight * 1.7) {
+      if (scrollY > windowHeight * 2.2 && scrollY < windowHeight * 2.8) {
         scare2.style.opacity = "1";
         scare2.style.zIndex = "-999";
       } else {

@@ -10,7 +10,7 @@
 {% endblock stylesheet %}
 
 {% block content %}
-<h1 style="margin-top: 50px;">Submit your Costume</h1>
+<h1 class="text-center mt-4">Submit your Costume</h1>
 <form action="{% url 'costumes_submission_page' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="costume_caption">Caption for your post:</label>
