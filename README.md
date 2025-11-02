@@ -1,6 +1,7 @@
 # HalloweenHackathon
 Team 5's Halloween hackathon with Code Institute
 
+deployment link: https://halloweenhackathon-aaa7ba8be0f6.herokuapp.com/
 
 To install/ set up:
 
