@@ -49,6 +49,33 @@ button:hover {
   box-shadow: 0 0 10px #c1121f;
 }
 
+.scare-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* so users can still click page elements */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: -1; /* behind main content */
+}
+
+.scare-image img {
+  max-width: 400px;
+  opacity: 0.8;
+  animation: flicker 0.3s ease-in-out 2;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 0.3; }
+}
+
+
 
 /* Index */
 #index-header {

@@ -20,6 +20,7 @@ Costumes
 </header>
 
 <main>
+
   <!-- Party Section -->
   <section class="container">
     <div class="party-card">
@@ -39,7 +40,7 @@ Costumes
           Dark beats, eerie lights, and a night you’ll never forget.
           Costumes encouraged. Spirits welcome.
         </p>
-        <a href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</a>
+        <button href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</button>
 
       </div>
     </div>
@@ -61,7 +62,7 @@ Costumes
           Thumping bass, twisted visuals, and creatures of the night unite.
           Dress to haunt. Dance till dawn.
         </p>
-        <a href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</a>
+        <button href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</button>
       </div>
 
       <div class="party-card">
@@ -80,9 +81,13 @@ Costumes
             Sinister sounds, glowing masks, and endless energy.
             One night. One nightmare. All fun.
           </p>
-          <a href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</a>
+          <button href="{% url 'tickets' %}" class="btn btn-danger buy-ticket">Buy Ticket</button>
         </div>
       </div>
+
+          <div class="scare-image" id="scare1">
+            <img src="{% static 'images/eyes.jpg' %}" alt="Eyes watching you">
+          </div>
 
   </section>
 </main>

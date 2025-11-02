@@ -1,5 +1,29 @@
 console.log("Script loaded correctly");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const scare1 = document.getElementById("scare1");
+  const scare2 = document.getElementById("scare2");
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+
+    // --- Scare 1 logic ---
+    if (scare1) {
+      if (scrollY > windowHeight * 1.2 && scrollY < windowHeight * 1.9) {
+        scare1.style.opacity = "1";
+        scare1.style.zIndex = "-999";
+      } else {
+        scare1.style.opacity = "0";
+        scare1.style.zIndex = "-1";
+      }
+    }
+
+  });
+});
+
+
 // Total Calculation Script
 const eventSelect = document.getElementById("event");
 const ticketSelect = document.getElementById("tickets");
