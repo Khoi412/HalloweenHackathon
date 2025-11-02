@@ -5,6 +5,13 @@
 Tickets 
 {% endblock title %} 
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/tickets.css' %}" type="text/css">
+<script>
+    console.log("Costume submission stylesheet run % loaded");
+</script>
+{% endblock stylesheet %}
+
 {% block content %}
 
 <main>
@@ -12,7 +19,7 @@ Tickets
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="p-4 mb-4">
-          <h2 class="text-center mb-4">Choose Your Party</h2>
+          <h1 class="text-center mb-4">Choose Your Party</h1>
 
           <!-- Event Selection -->
           <form id="ticketForm" class="needs-validation" novalidate>
@@ -114,11 +121,6 @@ Tickets
               <h4>Total:</h4>
               <h4 class="price" id="total">£0</h4>
             </div>
-
-            <p class="text-secondary mt-2 text-center">
-              If you're logged in, your purchased tickets will automatically be
-              added to your account.
-            </p>
 
             <div class="d-grid mt-4">
               <button

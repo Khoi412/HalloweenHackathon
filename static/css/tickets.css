@@ -1,0 +1,336 @@
+/*CSS Variables*/
+:root {
+  --primary-font: "Nosifer", serif; /* headings */
+  --secondary-font: "Road Rage", sans-serif; /* body text */
+  --primary-color: #a91618;
+  /* Dark Red */
+  --secondary-color: #bfb5b3;
+  /* Nobel */
+  --orange: #ff4500;
+  /* Orange */
+  --green: #18a916;
+  /* Green */
+  --black: #000000;
+  --white: #f7f5f2;
+}
+
+
+h1 {
+  color: var(--orange) !important;
+  text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.5);
+}
+
+.form-control,
+.form-select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.1rem;
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+  color: var(--secondary-color);
+}
+
+.form-control:active,
+.form-select:active {
+  box-shadow: inset 0 0 10px var(--orange);
+}
+
+/* remove browser's blue focus ring */
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+  box-shadow: inset 0 0 10px var(--orange);
+}
+
+.form-control[type="file"] {
+  padding: 6px;
+  border: none;
+  border-radius: 3px;
+  background-color: #333;
+  color: var(--secondary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Modern browsers (button part) */
+.form-control[type="file"]::file-selector-button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  background: linear-gradient(180deg, #ff7f26, #ff4500);
+  color: var(--white);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.08s ease;
+}
+
+button {
+  background-color: var(--orange);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px #c1121f;
+}
+
+.footer-link:hover,
+.footer-title {
+  color: var(--orange);
+}
+
+/* Payments */
+#loading-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(196, 49, 49, 0.85);
+	z-index: 9999;
+}
+
+.loading-spinner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	height: 100%;
+}
+
+#start-payment {
+  background-color: var(--orange);
+}
+
+#start-payment:hover {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px #c1121f;
+}
+
+/* Reaper */
+*,:after,:before{box-sizing:border-box}
+.pull-left{float:left}
+.pull-right{float:right}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+
+.halloween .head .skull:before,
+.halloween .head .skull:after,
+.halloween .eyes .eye:before,
+.halloween .body:before,
+.halloween .body:after,
+.halloween .legs:before{
+  content:'';
+  position:absolute;
+}
+.halloween{
+  top:50%;
+  left:50%;
+  width:90px;
+  height:132px;
+  position:fixed;
+  margin-top:-66px;
+  margin-left:-45px;
+  animation:move 3s infinite;
+}
+.halloween .head{
+  z-index:1;
+  width:75px;
+  height:75px;
+  background:#444;
+  border-radius:50%;
+  position:relative;
+}
+.halloween .head .skull{
+  left:6px;
+  bottom:6px;
+  width:48px;
+  height:48px;
+  color:#f9f9f9;
+  border-radius:50%;
+  background:#f9f9f9;
+  position:absolute;
+  animation:skull 3s infinite;
+}
+.halloween .head .skull:before{
+  top:27px;
+  width:0;
+  left:50%;
+  height:0;
+  z-index:1;
+  margin-left:-6px;
+  border:6px solid transparent;
+  border-bottom:6px solid #444;
+}
+.halloween .head .skull:after{
+  top:42px;
+  left:50%;
+  width:3px;
+  height:12px;
+  margin-left:-3px;
+  background:#f9f9f9;
+  box-shadow: 6px 0,-6px 0,12px 0,-12px 0,
+        -9px -6px,-3px -6px,3px -6px,9px -6px;
+}
+.halloween .eyes{
+  width:inherit;
+  height:inherit;
+  overflow:hidden;
+  border-radius:50%;
+  position:relative;
+}
+.halloween .eyes .eye{
+  top:15px;
+  width:15px;
+  height:15px;
+  position:absolute;
+  border-radius:50%;
+  background:#f8cd22;
+  border:3px solid #444;
+  border-right:6px solid #444;
+}
+.halloween .eyes .eye:before{
+  top:-3px;
+  left:-3px;
+  width:15px;
+  height:9px;
+  background:#f9f9f9;
+  border-radius:15px 15px 0 0;
+  animation:eyes 3s infinite;
+}
+.halloween .eyes .eye.eye-left{
+  left:3px;
+}
+.halloween .eyes .eye.eye-right{
+  right:3px;
+}
+.halloween .body{
+  top:-9px;
+  width:72px;
+  height:51px;
+  background:#444;
+  position:relative;
+  border-radius:30px 30px 6px 6px;
+}
+.halloween .body:before,
+.halloween .body:after{
+  top:9px;
+  width:12px;
+  height:36px;
+  background:#444;
+}
+.halloween .body:before{
+  left:-3px;
+  border-radius:100% 0 0 6px;
+  transform:rotate(10deg);
+  animation:hand-left 3s infinite;
+}
+.halloween .body:after{
+  right:-3px;
+  border-radius:0 100% 6px 0;
+  transform:rotate(-10deg);
+  animation:hand-right 3s infinite;
+}
+.halloween .legs{
+  top:-9px;
+  left:50%;
+  width:63px;
+  height:30px;
+  overflow:hidden;
+  margin-left:-39px;
+  position:relative;
+  border-bottom:3px solid rgba(0,0,0,.2);
+}
+.halloween .legs:before{
+  top:0;
+  left:-21px;
+  width:180px;
+  height:30px;
+  background-image:linear-gradient(-495deg, #444 12px,transparent 0), linear-gradient(-45deg, transparent 12px, #444 0);
+  background-size:12px 24px;
+  background-repeat:repeat-x;
+  animation:legs 3s infinite;
+}
+@keyframes move{
+  0%{
+    transform:translateX(0)
+  }
+  50%{
+    transform:translateX(45px)
+  }
+  100%{
+    transform:translateX(0)
+  }
+}
+@keyframes skull{
+  0%{
+    transform:translate(0,0)
+  }
+  25%{
+    transform:translate(6px,3px)
+  }
+  75%{
+    transform:translate(9px,-3px)
+  }
+  100%{
+    transform:translate(0,0)
+  }
+}
+@keyframes eyes{
+  0%{
+    top:-15px;
+    border-radius:50%;
+  }
+  50%{
+    top:-3px;
+    border-radius:15px 15px 0 0;
+  }
+  100%{
+    top:-15px;
+    border-radius:50%;
+  }
+}
+@keyframes legs{
+  0%{
+    left:-21px;
+  }
+  50%{
+    left:-75px;
+  }
+  100%{
+    left:-21px;
+  }
+}
+@keyframes hand-left{
+  0%{
+    left:3px;
+  }
+  50%{
+    left:-6px;
+  }
+  100%{
+    left:3px;
+  }
+}
+@keyframes hand-right{
+  0%{
+    right:3px;
+  }
+  50%{
+    right:-6px;
+  }
+  100%{
+    right:3px;
+  }
+}
