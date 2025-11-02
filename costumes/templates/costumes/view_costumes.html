@@ -7,8 +7,11 @@
 {% endblock stylesheet %}
 
 {% block content %}
-<h1>Costume Submissions</h1>
-<p>Here you can view all the submitted costumes.</p>
+<div class="text-center">
+    <h1>Costume Submissions</h1>
+    <p>Here you can view all the submitted costumes. <br> <a class="ps-2" href="{% url 'costumes_submission_page' %}"><i class="fa-solid fa-mask"></i> Submit your own here! <i class="fa-solid fa-mask"></i></a></p>
+</div>
+
 <!-- You would typically loop through the submitted costumes and display them here -->
 <section class="costume-list">
     {% for costume in costumes %}
@@ -18,14 +21,14 @@
         </div>
         <div class="costume-caption">
             <div class="action-buttons">
-                <button class="like-button {% if costume.user_has_liked %}clicked{% else %}unclicked{% endif %}">
-                    <span class="like-counter">{{ costume.likes.count }}</span><span class="like-button-icon"></span>
+                <button class="btn btn-success  like-button {% if costume.user_has_liked %}clicked{% else %}unclicked{% endif %}">
+                    <span class="like-counter">{{ costume.likes.count }}</span> <span class="like-button-icon"></span>
                 </button>
-                <button class="comment-button">Comment</button>
+                <button class="comment-button btn btn-success ms-4">Comment</button>
             </div>
             <br>
             <h4>{{ costume.caption }}</h4>
-            <p>Submitted by: {{ costume.user.username }} on {{ costume.timestamp }}</p>
+            <p id="costume-data">Submitted by: {{ costume.user.username }} on {{ costume.timestamp }}</p>
         </div>
     </div>
     {% empty %}
