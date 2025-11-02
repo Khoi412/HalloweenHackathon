@@ -121,7 +121,7 @@ button:hover {
   width: 100%;
 }
 
-#account-navbar, #nav-toggle {
+#account-navbar {
   display: flex;
   justify-content: end;
   width: 0%;
