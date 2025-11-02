@@ -49,14 +49,17 @@ a:hover{
   color: var(--primary-color);
 }
 
-button:hover {
+button:hover, .btn-danger:hover {
   box-shadow: 0 0 10px #c1121f;
 }
 
 .btn-danger {
   background-color: var(--primary-color);
   font-size: 1.5rem;
+  border-color: var(--primary-color);
 }
+
+
 
 
 
@@ -121,6 +124,10 @@ button:hover {
 
 .party-image > img {
   width: 25%;
+}
+
+.party-location:hover {
+  color: var(--orange);
 }
 
 /* Navbar */
