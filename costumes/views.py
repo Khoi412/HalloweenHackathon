@@ -13,6 +13,10 @@ def tickets(request):
     return render(request, 'costumes/tickets.html')
 
 
+def about(request):
+    return render(request, 'costumes/about.html')
+
+
 @login_required
 def costumes_submission_page(request):
 

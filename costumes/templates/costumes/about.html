@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+About Us
+{% endblock title %}
+
+{% block content %}
+
+<!-- Header -->
+<header id="about-header" class="py-5 text-center">
+  <div class="container">
+    <h1 class="heading-text">
+      About <span class="text-danger">HauntHub</span> <i class="fa-solid fa-ghost"></i>
+    </h1>
+    <p class="lead mt-3">
+      Where every night is a fright — and every photo tells a haunting story.
+    </p>
+  </div>
+</header>
+
+<main>
+  <!-- Intro Section -->
+  <section class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+        <img src="{% static 'images/logo.png' %}"
+                alt="HauntHub"
+             class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-danger">Who We Are</h2>
+        <p>
+          <strong>HauntHub</strong> is the UK’s ultimate Halloween and nightlife community —
+          bringing together partygoers, music lovers, and thrill-seekers from all walks of (after)life.
+          We host exclusive haunted raves and eerie experiences across the country,
+          where beats meet the bizarre.
+        </p>
+        <p>
+          Whether you’re here to find your next spine-tingling event or to share your scariest costume moments,
+          HauntHub is your home for all things dark, fun, and unforgettable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="bg-dark text-light py-5">
+    <div class="container text-center">
+      <h2 class="mb-4"><i class="fa-solid fa-users"></i> Join the HauntHub Community</h2>
+      <p class="mb-5">
+        Become part of a vibrant community where users can upload their spooky snapshots,
+        comment on others’ photos, and show their love with likes.
+        Whether it’s your costume, your crew, or your creepiest dance move — share it all.
+      </p>
+
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-3">
+          <i class="fa-solid fa-user-plus fa-2x text-danger mb-3"></i>
+          <h5>Sign Up</h5>
+          <p>Create a free account and join the haunt.</p>
+        </div>
+        <div class="col-md-3 mb-3">
+          <i class="fa-solid fa-camera fa-2x text-danger mb-3"></i>
+          <h5>Upload Photos</h5>
+          <p>Share your eerie experiences with others.</p>
+        </div>
+        <div class="col-md-3 mb-3">
+          <i class="fa-solid fa-heart fa-2x text-danger mb-3"></i>
+          <h5>Like & Comment</h5>
+          <p>Connect with fellow creatures of the night.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="container my-5 text-center">
+    <h2 class="text-danger mb-4"><i class="fa-solid fa-ticket"></i> Upcoming Events</h2>
+    <p class="mb-5">
+      Don’t just watch the haunt — be part of it. Grab your tickets before they vanish into the mist.
+    </p>
+
+    <div id="about-events" class="row justify-content-center">
+      <div class="event col-md-4 mb-4">
+        <div class="card bg-body-tertiary shadow">
+          <img src="{% static 'images/flyer-1.jpg' %}" class="card-img-top" alt="Nightmare on Grand Ave">
+          <div class="card-body">
+            <h5 class="card-title">Nightmare on Grand Ave</h5>
+            <p class="card-text">Friday, October 31, 2025 – Soho, London</p>
+            <a href="{% url 'tickets' %}" class="btn btn-danger">Buy Ticket</a>
+          </div>
+        </div>
+      </div>
+      <div class="event col-md-4 mb-4">
+        <div class="card bg-body-tertiary shadow">
+          <img src="{% static 'images/flyer-2.jpg' %}" class="card-img-top" alt="The Haunted Rave">
+          <div class="card-body">
+            <h5 class="card-title">The Haunted Rave</h5>
+            <p class="card-text">Sunday, October 26, 2025 – Waterloo, London</p>
+            <a href="{% url 'tickets' %}" class="btn btn-danger">Buy Ticket</a>
+          </div>
+        </div>
+      </div>
+      <div class="event col-md-4 mb-4">
+        <div class="card bg-body-tertiary shadow">
+          <img src="{% static 'images/flyer-3.jpg' %}" class="card-img-top" alt="Halloween Haunt Night">
+          <div class="card-body">
+            <h5 class="card-title">Halloween Haunt Night</h5>
+            <p class="card-text">Saturday, October 25, 2025 – Manchester</p>
+            <a href="{% url 'tickets' %}" class="btn btn-danger">Buy Ticket</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-danger text-light text-center py-5">
+    <div class="container">
+      <h2 class="mb-3"><i class="fa-solid fa-bolt"></i> Ready to Join the Haunt?</h2>
+      <p class="mb-4">Sign up, upload your best costume shots, and grab your ticket to the next haunted rave.</p>
+      <a href="{% url 'account_signup' %}" class="btn btn-light btn-lg me-3">Register Now</a>
+      <a href="{% url 'tickets' %}" class="btn btn-outline-light btn-lg">Buy Tickets</a>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}
