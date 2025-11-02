@@ -82,6 +82,12 @@ p, a {
   width: 100%;
 }
 
+#account-navbar {
+  display: flex;
+  justify-content: end;
+  width: 0%;
+}
+
 /* Payments */
 #loading-overlay {
 	display: none;

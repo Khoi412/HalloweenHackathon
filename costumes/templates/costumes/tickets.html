@@ -1,10 +1,9 @@
 {% extends "base.html" %} 
-{% load static %}
+{% load static %} 
 
-
-{% block title %}
-Tickets
-{% endblock title %}
+{% block title %} 
+Tickets 
+{% endblock title %} 
 
 {% block content %}
 
@@ -21,9 +20,15 @@ Tickets
               <label for="event" class="form-label">Select Event</label>
               <select id="event" name="event" class="form-select" required>
                 <option value="" data-price="0">-- Choose an Event --</option>
-                <option value="oct31" data-price="16.99">Nightmare on Grand Ave – Oct 31 (£16.99)</option>
-                <option value="oct26" data-price="13.99">The Haunted Rave – Oct 26 (£13.99)</option>
-                <option value="oct25" data-price="14.99">Halloween Haunt Night – Oct 25 (£14.99)</option>
+                <option value="oct31" data-price="16.99">
+                  Nightmare on Grand Ave – Oct 31 (£16.99)
+                </option>
+                <option value="oct26" data-price="13.99">
+                  The Haunted Rave – Oct 26 (£13.99)
+                </option>
+                <option value="oct25" data-price="14.99">
+                  Halloween Haunt Night – Oct 25 (£14.99)
+                </option>
               </select>
             </div>
 
@@ -43,11 +48,23 @@ Tickets
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" id="email" name="email" class="form-control" required>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                />
               </div>
             </div>
 
@@ -56,17 +73,38 @@ Tickets
 
             <div class="mb-3">
               <label for="cardNumber" class="form-label">Card Number</label>
-              <input type="text" id="cardNumber"  maxlength="16" class="form-control" placeholder="1234 5678 9012 3456" required>
+              <input
+                type="text"
+                id="cardNumber"
+                maxlength="16"
+                class="form-control"
+                placeholder="1234 5678 9012 3456"
+                required
+              />
             </div>
 
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="expiry" class="form-label">Expiry Date</label>
-                <input type="text"  maxlength="4" id="expiry" class="form-control" placeholder="MM/YY" required>
+                <input
+                  type="text"
+                  maxlength="4"
+                  id="expiry"
+                  class="form-control"
+                  placeholder="MM/YY"
+                  required
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cvv" class="form-label">CVV</label>
-                <input type="text"  maxlength="3" id="cvv" class="form-control" placeholder="123" required>
+                <input
+                  type="text"
+                  maxlength="3"
+                  id="cvv"
+                  class="form-control"
+                  placeholder="123"
+                  required
+                />
               </div>
             </div>
 
@@ -76,39 +114,49 @@ Tickets
               <h4 class="price" id="total">£0</h4>
             </div>
 
-            <p class="text-secondary mt-2 text-center">If you're logged in, your purchased tickets will automatically be added to your account.</p>
+            <p class="text-secondary mt-2 text-center">
+              If you're logged in, your purchased tickets will automatically be
+              added to your account.
+            </p>
 
             <div class="d-grid mt-4">
-              <button id="start-payment" type="button" class="btn btn-danger btn-lg">Complete Purchase</button>
+              <button
+                id="start-payment"
+                type="button"
+                class="btn btn-danger btn-lg"
+              >
+                Complete Purchase
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-<!-- Loading overlay HTML -->
-<div id="loading-overlay" role="status" aria-live="polite" style="display:none;">
+
+  <!-- Loading overlay HTML -->
+  <div
+    id="loading-overlay"
+    role="status"
+    aria-live="polite"
+    style="display: none"
+  >
     <div class="h1 text-light logo-font loading-spinner">
-        <div class="halloween">
-  <div class="head">
-    <div class="skull">
-      <div class="eyes">
-        <div class="eye eye-left"></div>
-        <div class="eye eye-right"></div>
+      <div class="halloween">
+        <div class="head">
+          <div class="skull">
+            <div class="eyes">
+              <div class="eye eye-left"></div>
+              <div class="eye eye-right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="body"></div>
+        <div class="legs"></div>
       </div>
+      <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-  <div class="body"></div>
-  <div class="legs"></div>
-</div>
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
-  </main>
+</main>
 
-  <script>
-
-  </script>
-
-
-{% endblock content %} 
+{% endblock content %}
