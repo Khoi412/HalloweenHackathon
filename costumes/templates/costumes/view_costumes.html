@@ -17,6 +17,7 @@
     {% for costume in costumes %}
     <div class="costume-entry" id="{{ costume.id }}">
         <div class="costume-image">
+            <img src="{{ costume.image.url }}" alt="{{ costume.caption }}">
         </div>
         <div class="costume-caption">
             <div class="action-buttons">

@@ -68,3 +68,7 @@ a:hover {
 #costume-data {
     font-size: 1.2rem;
 }
+
+.footer-link:hover, .footer-title {
+    color: var(--green);
+}
