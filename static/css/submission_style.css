@@ -17,9 +17,7 @@
 body {
   padding-top: 67px; /*Added for nav bar space to not overlap as it is now fixed top*/
   background: var(--black);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
 }
 
 h1 {
@@ -30,6 +28,7 @@ h1 {
 label {
   color: var(--white);
   margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
 form {

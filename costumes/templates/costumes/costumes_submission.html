@@ -11,14 +11,16 @@
 
 {% block content %}
 <h1 class="text-center mt-4">Submit your Costume</h1>
-<form action="{% url 'costumes_submission_page' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <label for="costume_caption">Caption for your post:</label>
-    <textarea id="costume_caption" name="costume_caption" required></textarea>
-    <br>
-    <label for="image">Your Photo:</label>
-    <input type="file" id="image" name="costume_image" accept="image/*" required>
-    <br>
-    <button class="btn" type="submit">Submit</button>
-</form>
+<div class="d-flex flex-column align-items-center pt-4">  
+    <form action="{% url 'costumes_submission_page' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="costume_caption">Caption for your post:</label>
+        <textarea id="costume_caption" name="costume_caption" required></textarea>
+        <br>
+        <label for="image">Your Photo:</label>
+        <input type="file" id="image" name="costume_image" accept="image/*" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
 {% endblock %}
