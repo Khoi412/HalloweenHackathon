@@ -249,6 +249,11 @@ button:hover, .btn-danger:hover {
   no-repeat 53% 0% fixed;
   background-size: cover;
 }
+
+
+    .who-are-we {
+      padding: 1.5rem;
+    }
 }
 
 /* Changes settings below 619 px (Small) */
@@ -257,6 +262,10 @@ button:hover, .btn-danger:hover {
     font-size: 3rem;
     line-height: 5rem;
 }
+
+    #about-events > .event > .card > img {
+        max-height: 57rem;
+    }
 
 .party-card {
   justify-content: center;
