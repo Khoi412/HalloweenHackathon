@@ -27,3 +27,7 @@ python manage.py migrate
 # 8. Run the server to verify the setup
 echo "Starting server on http://127.0.0.1:8000/"
 python manage.py runserver
+
+# 9. Presentation Video Team 5 Halloween Hackaton
+
+Link:- https://drive.google.com/file/d/1cz2zbY7u7Yjytu5XAXP38Rm44LT2ENRF/view?usp=sharing
